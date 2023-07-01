@@ -7,9 +7,7 @@ function App() {
 
   return (
     <>
-      <div>
-      </div>
-      <div>
+      <div className='dark'>
         <PageSpeedData />
       </div>
     </>

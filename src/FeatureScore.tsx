@@ -5,7 +5,7 @@ const FeatureScore = (audit: BootupTime) => {
 
     return (
         <div>
-            <h3>{audit.title} - {audit.score} (scoreDisplayMode: {audit.scoreDisplayMode})</h3>
+            <h3 className='text-2xl'>{audit.title} - {audit.score} (scoreDisplayMode: {audit.scoreDisplayMode})</h3>
             <p><strong>{audit.displayValue}</strong></p>
             <p>{audit.description}</p>
             <div>Details:</div>
@@ -16,7 +16,7 @@ const FeatureScore = (audit: BootupTime) => {
                     </>
                 )
             })}
-            <table className='full' style={{ borderCollapse: 'collapse', border: '1px solid' }}>
+            <table className='table-auto table border'>
                 <thead>
                     <tr>
                         {audit.details && audit.details.headings && audit.details.headings.map((heading: Heading, index: number) => {
@@ -30,38 +30,16 @@ const FeatureScore = (audit: BootupTime) => {
                 </thead>
                 <tbody>
                     {audit.details && audit.details.items.map((item, index) => (
-                        <tr>
-                            {audit.details?.headings.map((heading: Heading, index: number) => {
+                        <>
+                        <NestedItem key={index} item={item} />
+                            {/* {Object.entries(item).map((heading: Heading, index: number) => {
                                 return (
                                     <>
-                                        <td style={{ outline: '2px solid blue' }}>
-                                            <div style={{ outline: '2px solid coral' }}>
-                                                <NestedItem key={item[heading.key as keyof typeof item.headings]} item={item} heading={heading} />
-                                            </div>
-                                            {/* {
-                                                //if item is not an object type
-                                                Object.entries(item[heading.key as keyof typeof item] as object).map(([key, value], index) => {
-                                                        //if value is an object type
-                                                        if (typeof value === 'object') {
-                                                            return ('')
-                                                        }
-                                                        else {
-                                                            return (
-
-                                                                <div style={{ outline: '1px solid red' }}>
-                                                                    <li key={index}>{key} - {Object.entries(value).map(w=>Object.entries(w).map(x=>x))}</li>
-                                                                </div>
-                                                            )
-                                                        }
-                                                    })
-                                                    
-                                            } */}
-                                        </td>
                                     </>
                                 )
                             })
-                            }
-                        </tr>
+                            } */}
+                        </>
                     ))}
                 </tbody>
             </table>
@@ -112,21 +90,24 @@ const ImageFromSnippet = ({ snippet }: { snippet?: string }) => {
     return (<div dangerouslySetInnerHTML={{ __html: htmlValue }}></div>);
 }
 
-const NestedItem = ({ item, heading }: { item: object, heading: Heading }) => {
-    console.log(item);
-    console.log('pathObject', item[heading.key as keyof typeof item])
+const NestedItem = ({ item }: { item: object }) => {
+    // console.log(item);
+    // console.log('pathObject', item[heading.key as keyof typeof item])
     return (
-        <div style={{ outline: '1px dashed red', paddingLeft: '0.5rem' }}>
+        <>
 
             {Object.entries(item || {}).map(([key, value]: [string, object | string], index) => {
                 return (
-                    <div style={{ outline: '1px' }}>
-                        <li key={index}>{key} - {typeof (value) === 'object' ? <NestedItem item={value} heading={heading} /> : value}</li>
-                    </div>
+                    <tr key={index}>
+                        <td>{index}</td>
+                        <td>{key}</td>
+                        <td>{typeof (value) === 'object' ? <NestedItem item={value} /> : value}</td>
+                    </tr>
                 )
             })
             }
-        </div>
+
+        </>
     )
 
 }

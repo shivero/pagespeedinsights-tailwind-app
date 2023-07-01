@@ -3,6 +3,7 @@ import FeatureScore from './FeatureScore'
 const PageSpeedData = () => {
     return (
         <>
+        
         <div>Requested url: {data.lighthouseResult.requestedUrl}</div>
         <div>Final url: {data.lighthouseResult.finalUrl}</div>
         <div>Final displayed url: {data.lighthouseResult.finalDisplayedUrl}</div>
