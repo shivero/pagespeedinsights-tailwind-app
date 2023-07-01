@@ -1,15 +1,15 @@
 {
   "captchaResult": "CAPTCHA_NOT_NEEDED",
   "kind": "pagespeedonline#result",
-  "id": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
+  "id": "https://m.ceneo.pl/138638987",
   "loadingExperience": {
-    "initial_url": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ"
+    "initial_url": "https://m.ceneo.pl/138638987"
   },
   "lighthouseResult": {
-    "requestedUrl": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
-    "finalUrl": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
-    "mainDocumentUrl": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
-    "finalDisplayedUrl": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
+    "requestedUrl": "https://m.ceneo.pl/138638987",
+    "finalUrl": "https://m.ceneo.pl/138638987",
+    "mainDocumentUrl": "https://m.ceneo.pl/138638987",
+    "finalDisplayedUrl": "https://m.ceneo.pl/138638987",
     "lighthouseVersion": "10.2.0",
     "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/114.0.5735.179 Safari/537.36",
     "fetchTime": "2023-07-01T15:21:47.260Z",
@@ -620,7 +620,7 @@
           "items": [
             {
               "responseTime": 396.661,
-              "url": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ"
+              "url": "https://m.ceneo.pl/138638987"
             }
           ],
           "overallSavingsMs": 296.661,
@@ -1354,7 +1354,7 @@
             },
             {
               "startTime": 447,
-              "url": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
+              "url": "https://m.ceneo.pl/138638987",
               "duration": 72
             },
             {
@@ -1693,7 +1693,7 @@
             {
               "scripting": 69.217000000000027,
               "scriptParseCompile": 9.6250000000000018,
-              "url": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
+              "url": "https://m.ceneo.pl/138638987",
               "total": 656.10299999999972
             },
             {
@@ -1763,7 +1763,7 @@
           "nodes": [
             {
               "unusedBytes": 16966,
-              "name": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
+              "name": "https://m.ceneo.pl/138638987",
               "resourceBytes": 81565,
               "children": [
                 {
@@ -2139,7 +2139,7 @@
                 }
               ],
               "resourceBytes": 9,
-              "name": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ"
+              "name": "https://m.ceneo.pl/138638987"
             },
             {
               "resourceBytes": 2689,
@@ -2416,7 +2416,7 @@
               "resourceSize": 449842,
               "transferSize": 106723,
               "resourceType": "Document",
-              "url": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
+              "url": "https://m.ceneo.pl/138638987",
               "sessionTargetType": "page"
             },
             {
@@ -3930,7 +3930,7 @@
                 "url": "https://image.ceneostatic.pl/data/products/138638987/p-oral-b-io-series-10-black.jpg"
               },
               {
-                "url": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
+                "url": "https://m.ceneo.pl/138638987",
                 "initiatorType": "other"
               }
             ],
@@ -4479,7 +4479,7 @@
               },
               "request": {
                 "transferSize": 106723,
-                "url": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
+                "url": "https://m.ceneo.pl/138638987",
                 "responseReceivedTime": 162446.464268,
                 "startTime": 162446.068607,
                 "endTime": 162446.46428
@@ -4863,7 +4863,7 @@
               "url": "https://www.googletagmanager.com/gtm.js?id=GTM-MRDGTQ"
             },
             {
-              "url": "https://m.ceneo.pl/138638987?key=AIzaSyAWjyxig2-qF6cqN-CGj3VeKdexKSGsrwQ",
+              "url": "https://m.ceneo.pl/138638987",
               "totalBytes": 106723
             },
             {
