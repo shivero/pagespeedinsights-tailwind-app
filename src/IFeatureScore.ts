@@ -1,3 +1,5 @@
+import { DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_REACT_NODES } from 'react'
+
 export interface IFeatureScore {
   captchaResult: string
   kind: string
@@ -75,7 +77,7 @@ export interface ItemRR {
   totalCumulativeLayoutShift?: number
   cumulativeLayoutShiftMainFrame?: number
   duration?: number
-  startTime?: number
+  startTime?: number,
   // source?: Source
   rendererStartTime?: number
   networkRequestTime?: number
@@ -204,18 +206,18 @@ export interface Audits2 {
   "screenshot-thumbnails": AuditsRR
   "duplicated-javascript": AuditsRR
   "bootup-time": AuditsRR
-  redirects: AuditsRR
+  "redirects": AuditsRR
   "script-treemap-data": AuditsRR
   "final-screenshot": AuditsRR
   "cumulative-layout-shift": AuditsRR
   "layout-shift-elements": AuditsRR
-  viewport: AuditsRR
+  "viewport": AuditsRR
   "max-potential-fid": AuditsRR
   "network-requests": AuditsRR
-  interactive: AuditsRR
+  "interactive": AuditsRR
   "first-contentful-paint": AuditsRR
   "efficient-animated-content": AuditsRR
-  metrics: AuditsRR
+  "metrics": AuditsRR
   "prioritize-lcp-image": AuditsRR
   "uses-rel-preload": AuditsRR
   "first-meaningful-paint": AuditsRR
@@ -223,7 +225,7 @@ export interface Audits2 {
   "network-rtt": AuditsRR
   "unminified-javascript": AuditsRR
   "third-party-facades": AuditsRR
-  diagnostics: AuditsRR
+  "diagnostics": AuditsRR
   "network-server-latency": AuditsRR
   "user-timings": AuditsRR
   "timing-budget": AuditsRR

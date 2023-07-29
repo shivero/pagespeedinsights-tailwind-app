@@ -1,6 +1,6 @@
-import DOMPurify from 'dompurify';
+
 import { FontDisplay } from '../../IFeatureScore';
-import Headings from "../Headings/Headings";
+import Headings from "../Header/Header";
 import ScoreIcon from '../ScoreIcon';
 interface FontDisplayProps {
     audit: FontDisplay;
@@ -21,15 +21,6 @@ const FontDisplayDetails = ({ audit }: FontDisplayProps) => {
             ))}
         </div>
     );
-}
-function isObject(obj: object) {
-    return obj === Object(obj);
-}
-
-const ImageFromSnippet = ({ snippet }: { snippet?: string }) => {
-    if (!snippet) return null;
-    const htmlValue = DOMPurify.sanitize(snippet);
-    return (<div dangerouslySetInnerHTML={{ __html: htmlValue }}></div>);
 }
 
 const NestedItem = ({ item }: { item: object }) => {

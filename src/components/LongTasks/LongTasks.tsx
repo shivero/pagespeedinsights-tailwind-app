@@ -1,6 +1,6 @@
 import { LongTasks, RenderBlockingResources } from '../../IFeatureScore';
 import DetailsTable from '../DetailsTable';
-import Headings from "../Headings/Headings";
+import Headings from "../Header/Header";
 import ScoreIcon from '../ScoreIcon';
 interface LongTasksDetails {
     audit: LongTasks;
@@ -11,7 +11,7 @@ const LongTasksDetails = ({ audit }: LongTasksDetails) => {
             <h3 className='mt-4 text-xl'><ScoreIcon score={audit.score} /> {audit.title} - {audit.score} (scoreDisplayMode: {audit.scoreDisplayMode})</h3>
             {audit.displayValue && <p><strong>{audit.displayValue}</strong></p>}
             <p className='text-slate-500'>{audit.description}</p>
-            
+
             <DetailsTable items={audit.details.items} headings={audit.details.headings} />
         </div>
     );

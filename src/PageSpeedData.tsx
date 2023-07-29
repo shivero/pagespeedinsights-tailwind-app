@@ -1,9 +1,5 @@
 import data from '../product_data.json';
-import LcpLazyLoaded from './LcpLazyLoadedDetails'
-import AuditDetails from './components/Audit/Audit';
-import FontDisplayDetails from './components/FontDisplay/FontDisplayDetails';
-import LongTasksDetails from './components/LongTasks/LongTasks';
-import RenderBlockingResources from './components/RenderBlockingResources/RenderBlockingResources';
+import LcpLazyLoaded from './components/LcpLazyLoaded/LcpLazyLoadedDetails'
 const PageSpeedData = () => {
     return (
         <>
@@ -25,13 +21,9 @@ const PageSpeedData = () => {
                 ))}
             </div>
             <h2>Audits:</h2>
+
             <div><LcpLazyLoaded audit={data.lighthouseResult.audits['lcp-lazy-loaded']} /></div>
-            <div><FontDisplayDetails audit={data.lighthouseResult.audits['font-display']} /></div>
-            <div><RenderBlockingResources audit={data.lighthouseResult.audits['render-blocking-resources']} /></div>
-            <div><LongTasksDetails audit={data.lighthouseResult.audits['long-tasks']} /></div>
-            <div><AuditDetails audit={data.lighthouseResult.audits['bootup-time']} /></div>
-            <div><AuditDetails audit={data.lighthouseResult.audits['critical-request-chains']} /></div>
-            <div><AuditDetails audit={data.lighthouseResult.audits['third-party-summary']} /></div>
+
         </>
     )
 };

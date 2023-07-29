@@ -1,15 +1,16 @@
-import { isCompositeComponent } from 'react-dom/test-utils';
-import { HeadingRR, Item3, ItemRR, SubItemsHeading, SubItemsRR } from '../IFeatureScore';
+import { z } from 'zod';
+import { HeadingRR, ItemRR } from '../IFeatureScore';
+import { AuditSchema, AuditType } from '../types/LcpLazyLoadedSchema';
 
 interface DetailsTableProps {
     items?: ItemRR[];
     headings?: HeadingRR[];
 }
-const DetailsTable = ({ items, headings }: DetailsTableProps) => {
+
+const DetailsTable = ({ items, headings }: AuditType) => {
     if (!items || !headings) {
         return null;
     }
-    const allTypes: Record<string, boolean> = { jpg: true, gif: true, png: true, mp4: true };
 
     return (
         <table className='w-full border'>
@@ -23,30 +24,28 @@ const DetailsTable = ({ items, headings }: DetailsTableProps) => {
             <tbody>
                 {items.map((item, index) => (
                     <>
-                    <tr className='bg-orange-400' key={index}>
-                        {headings.map((heading, index) => {
-                            return (
-                                <>
-                                    {/* <pre>{JSON.stringify(heading.subItemsHeading, null, 2)}</pre> */}
-                                    <td className='border border-slate-600 text-sm px-2' key={index}>{(item[heading.key as keyof typeof item])} {heading.valueType}</td>
-
-                                    
-
-                                </>
-                            )
-                        }
-                        )}
-                    </tr>
-                    <tr className='bg-orange-200'>
-                    {headings.map((heading, index) => {
-                            return (
-                                <>
-                                    {item.subItems && <SubItems subItems={item.subItems.items} subHeading={heading.subItemsHeading} />}
-                                </>
-                            )
-                        }
-                        )}
-                    </tr>
+                        <tr className='bg-orange-300' key={index}>
+                            {headings.map((heading, index) => {
+                                const key = heading.key as keyof typeof item;
+                                return (
+                                    <td className='border border-slate-600 text-sm px-2 truncate max-w-xs' key={index}>
+                                        <>{(item[key])} {heading.valueType}</>
+                                        <div className></div>
+                                    </td>
+                                )
+                            }
+                            )}
+                        </tr>
+                        <tr className='bg-orange-200'>
+                            {headings.map((heading) => {
+                                return (
+                                    <>
+                                        {item.subItems && <SubItems subItems={item.subItems.items} subHeading={heading.subItemsHeading} />}
+                                    </>
+                                )
+                            }
+                            )}
+                        </tr>
                     </>
                 ))}
 
@@ -70,7 +69,10 @@ const SubItems = ({ subItems, subHeading }: { subItems?: ItemRR[], subHeading?: 
                     {subItems.map((item) => {
                         return (
                             <>
-                                <div className='truncate w-[400px]'>{(item[subHeading.key as keyof typeof item])} {subHeading.valueType}</div>
+                                <div className='truncate w-[200px]'>
+                                    <>{(item[subHeading.key as keyof typeof item])}</>
+                                    {subHeading.valueType}
+                                </div>
                                 <SubItems subItems={item.subItems?.items} subHeading={subHeading} />
                             </>
                         )
@@ -80,16 +82,6 @@ const SubItems = ({ subItems, subHeading }: { subItems?: ItemRR[], subHeading?: 
         </>
     )
 }
-const SubHeading = ({ subHeading }: { subHeading?: HeadingRR }) => {
-    if (!subHeading) {
-        return null;
-    }
-    return (
-        <div className='border border-red-500'>
-            <span className='label'>{subHeading.key}</span>
-            {subHeading.subItemsHeading && <SubHeading subHeading={subHeading.subItemsHeading} />}
-        </div>
-    )
-}
+
 
 export default DetailsTable;
