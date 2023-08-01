@@ -1,5 +1,6 @@
 import data from '../product_data.json';
 import LcpLazyLoaded from './components/LcpLazyLoaded/LcpLazyLoadedDetails'
+import LongTasks from './components/LongTasks/LongTasks';
 const PageSpeedData = () => {
     return (
         <>
@@ -22,7 +23,8 @@ const PageSpeedData = () => {
             </div>
             <h2>Audits:</h2>
 
-            <div><LcpLazyLoaded audit={data.lighthouseResult.audits['lcp-lazy-loaded']} /></div>
+            <div><LongTasks audit={data.lighthouseResult.audits['lcp-lazy-loaded']} /></div>
+            <div><LongTasks audit={data.lighthouseResult.audits['long-tasks']} /></div>
 
         </>
     )

@@ -1,42 +1,16 @@
 import { z } from 'zod';
+import { BaseAuditPropertiesSchema } from './BaseAuditPropertiesSchema';
+import { HeadingsSchema } from './LongTasksSchema';
+
+import { ItemsSchema } from './ItemsSchema';
 
 
-
-export const LcpLazyLoadedSchema = z.object({
-    id: z.string(),
-    title: z.string(),
-    description: z.string(),
-    score: z.number(),
-    scoreDisplayMode: z.string(),
+export const LcpLazyLoadedSchema = BaseAuditPropertiesSchema.extend({
     details: z.object({
-        items: z.array(
-            z.object({
-                node: z.object({
-                    path: z.string(),
-                    nodeLabel: z.string(),
-                    type: z.string(),
-                    boundingRect: z.object({
-                        width: z.number(),
-                        left: z.number(),
-                        bottom: z.number(),
-                        top: z.number(),
-                        right: z.number(),
-                        height: z.number()
-                    }),
-                    snippet: z.string(),
-                    selector: z.string(),
-                    lhId: z.string()
-                })
-            })
-        ),
+        items: ItemsSchema,
         type: z.string(),
-        headings: z.array(
-            z.object({
-                label: z.string(),
-                valueType: z.string(),
-                key: z.string()
-            })
-        )
+        headings: HeadingsSchema,
+        
     })
 })
 

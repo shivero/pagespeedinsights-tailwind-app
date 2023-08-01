@@ -6,7 +6,7 @@ function App() {
     <>
       <div className='dark'>
         <PageSpeedData />
-        
+
       </div>
     </>
   )

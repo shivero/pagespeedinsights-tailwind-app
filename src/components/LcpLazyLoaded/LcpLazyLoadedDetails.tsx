@@ -2,6 +2,8 @@ import ScoreIcon from '../ScoreIcon';
 import { LcpLazyLoadedSchema, LcpLazyLoadedType } from '../../types/LcpLazyLoadedSchema';
 import { z } from 'zod';
 import createdompurify from 'dompurify';
+import { Link } from '../Link';
+import React, { FC, HTMLAttributes } from 'react';
 const LcpLazyLoadedDetails = ({ audit }: { audit: LcpLazyLoadedType }) => {
     try {
         LcpLazyLoadedSchema.parse(audit);
@@ -9,17 +11,20 @@ const LcpLazyLoadedDetails = ({ audit }: { audit: LcpLazyLoadedType }) => {
     catch (error) {
         if (error instanceof z.ZodError) {
             console.error(error.issues);
+            return null;
         }
     }
-
     const sanitizedSnippet = createdompurify.sanitize(audit.details.items[0].node.snippet);
     return (
-        <div className=''>
-            <h3 className='mt-4 flex items-center text-xl'>
-                <ScoreIcon score={audit.score} />
-                {audit.title} - {audit.score} (scoreDisplayMode: {audit.scoreDisplayMode})
-            </h3>
-            <p className='text-slate-500'>{audit.description}</p>
+
+        <details open={audit.score === 0}>
+            <summary>
+                <h3 className='inline-flex mt-4 translate-y-0.5 items-center text-xl'>
+                    <ScoreIcon score={audit.score} />
+                    {audit.title} - {audit.score} (scoreDisplayMode: {audit.scoreDisplayMode})
+                </h3>
+            </summary>
+            <MdDescription className='text-slate-900 mt-4' value={audit.description} />
             <div className="text-xl">Details ({audit.details.type})</div>
             <table className='table border-collapse border border-slate-200 w-full'>
                 <thead>
@@ -59,10 +64,26 @@ const LcpLazyLoadedDetails = ({ audit }: { audit: LcpLazyLoadedType }) => {
                 </tbody>
 
             </table>
-        </div>
+        </details>
     );
 }
 
 
+interface IMdDescription extends HTMLAttributes<HTMLDivElement> {
+    value: string;
+}
+
+const MdDescription: FC<IMdDescription> = ({ value, children, ...htmlAttributes }) => {
+    if (!value) return null;
+    const insideBracketsText = value.substring(value.indexOf('[') + 1, value.indexOf(']'));
+    const insideParenthesesText = value.substring(value.indexOf('(') + 1, value.indexOf(')'));
+    const description = value.replace(insideBracketsText, '').replace(insideParenthesesText, '').replace('[]', '').replace('()', '').replace(' .', '');
+    return (<>
+        <p {...htmlAttributes}>{description} {Link(insideParenthesesText, insideBracketsText)}</p>
+    </>)
+}
+
 
 export default LcpLazyLoadedDetails;
+
+
